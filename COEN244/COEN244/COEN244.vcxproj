@@ -140,6 +140,16 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="COEN244.cpp" />
+    <ClCompile Include="Driver.cpp" />
+    <ClCompile Include="Edge.cpp" />
+    <ClCompile Include="Graph.cpp" />
+    <ClCompile Include="Vertex.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Driver.h" />
+    <ClInclude Include="Edge.h" />
+    <ClInclude Include="Graph.h" />
+    <ClInclude Include="Vertex.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
