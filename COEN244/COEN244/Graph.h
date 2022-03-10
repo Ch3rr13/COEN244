@@ -16,7 +16,8 @@ class Graph
 	virtual bool addValue(std::string, Vertex&) = 0;
 	//Searches if certain value in Vertices exists; Returns bool value if exists
 	virtual bool searchValueExists(std::string) = 0;
-
+	// asd
+	// gadas
 	//Adds list of edges to graph; Returns bool value if successful
 	virtual bool addEdges(Edge*) = 0;
 	//Searches if Edge exists; Returns bool value if exists
