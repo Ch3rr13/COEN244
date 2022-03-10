@@ -10,6 +10,8 @@ private:
 
 public:
 	Edge();//Default constructor
+	Edge(Edge&);//Copy constructor
+	Edge(int, Vertex*, Vertex*);//Parameter constructor
 
 	void setWeight(int);
 	int getWeight();

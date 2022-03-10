@@ -4,8 +4,15 @@
 #include "Vertex.h"
 
 class Graph
-{
-	Graph();
+{//Abstract class
+private:
+	Vertex* vArray;
+	Edge* eArray;
+
+public:
+	Graph();//Default
+	Graph(Graph&);//Copy constructor
+	Graph(Vertex*, Edge*);//Parameter constructor
 
 	//Adds list of Vertices to graph; Returns bool value if successful
 	virtual bool addVertices(Vertex*) = 0;

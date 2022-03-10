@@ -9,6 +9,8 @@ private:
 
 public:
 	Vertex();//Default constructor
+	Vertex(Vertex&);//Copy constructor
+	Vertex(int, std::string);//Parameter constructor
 
 	void setID(int);
 	int getID();

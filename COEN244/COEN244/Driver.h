@@ -1,6 +1,17 @@
 #pragma once
-class Driver
+#include "Graph.h"
+
+class Driver: public Graph
 {
-	//Derives from class GRAPH
+private:
+	Vertex* vArray;
+	Edge* eArray;
+
+public:
+	Driver();//Default constructor
+	Driver(Driver&);//Copy constructor
+	Driver(Vertex*, Edge*);//Parameter constructor
+
+
 };
 
