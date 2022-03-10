@@ -1,9 +1,11 @@
 #pragma once
+#include <string>
+
 class Vertex
 {
 private:
 	int ID;
-	int value;//Value will be divisibility of numbers
+	std::string value;//Value will be course sequence codes
 
 public:
 	Vertex();//Default constructor
@@ -11,8 +13,8 @@ public:
 	void setID(int);
 	int getID();
 
-	void setValue(int);
-	int getValue();
+	void setValue(std::string);
+	std::string getValue();
 
 	~Vertex();//Destructor
 };
