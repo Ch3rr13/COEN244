@@ -7,6 +7,7 @@ private:
 	int ID;
 	std::string value;//Value will be course sequence codes
 
+
 public:
 	Vertex();//Default constructor
 	Vertex(Vertex&);//Copy constructor

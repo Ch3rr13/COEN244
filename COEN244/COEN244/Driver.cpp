@@ -32,7 +32,12 @@ bool Driver::addVertices(Vertex* vArray, int size) {
 }
 
 Vertex Driver::searchEndVertex(Vertex& vertex) {
+	for (int i = 0; i < 20; i++) {
+		if (vArray[i].getID() == vertex.getID()) {
+			std::cout << vArray[i].getValue();
 
+		}
+	}
 }
 
 bool Driver::addValue(std::string value, Vertex& vertex) {
