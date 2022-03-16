@@ -15,13 +15,13 @@ public:
 	Driver(Driver&);//Copy constructor
 	Driver(Vertex*, Edge*,int,int, int);//Parameter constructor
 
-	bool addVertices(Vertex*, int);
+	bool addVertices(Vertex*);
 	Vertex searchEndVertex(Vertex&);
 
 	bool addValue(std::string, Vertex&);
 	bool searchValueExists(std::string);
 
-	bool addEdges(Edge*, int);
+	bool addEdges(Edge*);
 	bool searchEdgeExists(Edge&);
 
 	void convertGraph();

@@ -25,31 +25,17 @@ Driver::Driver(Vertex* vArray, Edge* eArray, int NumV, int NumE, int Max) {
 	this->eArray = new Edge[20];
 }
 
-bool Driver::addVertices(Vertex* vArray, int size) {
-	if(NumVertex+size <= 20) {
-		for (int i = 0; i < size; i++) {
-			this->vArray[NumVertex+i] = vArray[i];
+bool Driver::addVertices(Vertex* vArray) {
+	if(NumVertex + sizeof(vArray) <= Max) {
+		for (int i = 0; i < sizeof(vArray); i++) {
+			this->vArray[NumVertex + i] = vArray[i];
 			NumVertex++;
 		}
 		return true;
-
 	}
 	else {
 		return false;
 	}
-
-	/*
-	for (int i = 0; i < 20; i++) {
-		if (this->vArray[i].getID() == 0) {//check if the vertice is empty
-			for (int j = 0; j < size; j++) { // i dont think this works because 
-				this->vArray[i] = vArray[j];
-				i++;
-			}
-			return true;
-		}
-	}
-	return false;
-	*/
 }
 
 Vertex Driver::searchEndVertex(Vertex& vertex) {
@@ -77,32 +63,17 @@ bool Driver::searchValueExists(std::string value) {
 	return false;
 }
 
-bool Driver::addEdges(Edge* eArray, int size) {
-	if (NumEdge + size <= 20) {
-		for (int i = 0; i < size; i++) {
-			this->eArray[NumEdge+i] = eArray[i];
+bool Driver::addEdges(Edge* eArray) {
+	if (NumEdge + sizeof(eArray) <= Max) {
+		for (int i = 0; i < sizeof(eArray); i++) {
+			this->eArray[NumEdge + i] = eArray[i];
 			NumEdge++;
 		}
 		return true;
-
 	}
 	else {
 		return false;
 	}
-
-	/*
-	//same as addVertices
-	for (int i = 0; i < 20; i++) {
-		if (this->eArray[i].getWeight() == 0) {//check if the vertice is empty
-			for (int j = 0; j < size; j++) { // i dont think this works because 
-				this->eArray[i] = eArray[j];
-				i++;
-			}
-			return true;
-		}
-	}
-	return false;
-	*/
 }
 
 bool Driver::searchEdgeExists(Edge& edge) {
