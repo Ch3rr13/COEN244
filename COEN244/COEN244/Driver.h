@@ -4,13 +4,16 @@
 class Driver: public Graph
 {
 private:
+	int Max;
+	int NumVertex;
+	int NumEdge;
 	Vertex* vArray;
 	Edge* eArray;
 
 public:
 	Driver();//Default constructor
 	Driver(Driver&);//Copy constructor
-	Driver(Vertex*, Edge*);//Parameter constructor
+	Driver(Vertex*, Edge*,int,int);//Parameter constructor
 
 	bool addVertices(Vertex*, int);
 	Vertex searchEndVertex(Vertex&);
