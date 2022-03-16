@@ -40,14 +40,9 @@ bool Driver::addVertices(Vertex* vArray) {
 
 Vertex Driver::searchEndVertex(Vertex& vertex) {
 	for (int i = 0; i < NumVertex; i++) {
-		if (vArray[i].getID() == vertex.getID() && vertexArray[i].getValue() == vertex.getValue())
+		if (vArray[i].getID() == vertex.getID() && vArray[i].getValue() == vertex.getValue())
 		{
-			return vArray[i];//Stops loop once program finds vertex
-			break;
-		}
-		else
-		{
-			//return false; FIND A NULL TO RETURN
+			return vArray[i];
 		}
 	}
 }
@@ -76,6 +71,13 @@ bool Driver::addEdges(Edge* eArray) {
 		for (int i = 0; i < sizeof(eArray); i++) {
 			this->eArray[NumEdge + i] = eArray[i];
 			NumEdge++;
+
+			//Adds starting to the array
+			this->vArray[NumVertex + i] = this->eArray[NumEdge + i].getStartVertex();
+			NumVertex++;
+			//Adds ending vertices to the array
+			this->vArray[NumVertex + i] = this->eArray[NumEdge + i].getEndVertex();
+			NumVertex++;
 		}
 		return true;
 	}
