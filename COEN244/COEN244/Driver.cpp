@@ -2,11 +2,11 @@
 #include "Driver.h"
 
 Driver::Driver() {
-	Max = 20;
+	Max = 20;//Predetermined maximums
 	NumVertex = 0;
 	NumEdge = 0;
-	vArray = new Vertex[20];//Predetermined maximums
-	eArray = new Edge[20];
+	vArray = new Vertex[Max];
+	eArray = new Edge[Max];
 }
 
 Driver::Driver(Driver& d) {
@@ -17,18 +17,12 @@ Driver::Driver(Driver& d) {
 	eArray = d.eArray;
 }
 
-Driver::Driver(Vertex* vArray, Edge* eArray, int NumV, int NumE) {
+Driver::Driver(Vertex* vArray, Edge* eArray, int NumV, int NumE, int Max) {
+	this->Max = Max;
+	this->NumVertex = NumVertex;
+	this->NumEdge = NumEdge;
 	this->vArray = new Vertex[20];
 	this->eArray = new Edge[20];
-	for (int i = 0; i < NumV; i++) {
-		this->vArray[i] = vArray[i];
-		NumVertex++;
-	}
-	for (int i = 0; i < NumE; i++) {
-		this->eArray[i] = eArray[i];
-		NumEdge++;
-	}
-
 }
 
 bool Driver::addVertices(Vertex* vArray, int size) {

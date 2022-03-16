@@ -13,7 +13,7 @@ private:
 public:
 	Driver();//Default constructor
 	Driver(Driver&);//Copy constructor
-	Driver(Vertex*, Edge*,int,int);//Parameter constructor
+	Driver(Vertex*, Edge*,int,int, int);//Parameter constructor
 
 	bool addVertices(Vertex*, int);
 	Vertex searchEndVertex(Vertex&);
