@@ -40,7 +40,15 @@ bool Driver::addVertices(Vertex* vArray) {
 
 Vertex Driver::searchEndVertex(Vertex& vertex) {
 	for (int i = 0; i < NumVertex; i++) {
-
+		if (vArray[i].getID() == vertex.getID() && vertexArray[i].getValue() == vertex.getValue())
+		{
+			return vArray[i];//Stops loop once program finds vertex
+			break;
+		}
+		else
+		{
+			//return false; FIND A NULL TO RETURN
+		}
 	}
 }
 
