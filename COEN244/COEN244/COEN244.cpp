@@ -20,7 +20,7 @@ int main()
 
     Vertex* vStart2 = new Vertex(0, "ENGR213");
     Vertex* vEnd2 = new Vertex(3, "COEN212");
-    Edge* e2 = new Edge(10, vStart2, vEnd2);
+    Edge e2(10, vStart2, vEnd2);
     do
     {
         std::cout << " 1. Add vertex(vertices)\n 2. Search terminator/ending vertex\n 3. Add value to vertex\n 4. Search value" << std::endl;
@@ -32,21 +32,56 @@ int main()
         switch (input)//Evaluation of one variable
         {
         case 1: 
-            driver.addVertices(v2);
+            if (driver.addVertices(v2) == true)
+            {
+                std::cout << "Success! Vertex/Vertices added" << std::endl;
+            }
+            else
+            {
+                std::cout << "Sorry there was an error" << std::endl;
+            }
             break;
         case 2: 
             break;
         case 3: 
-            driver.addValue("COEN244", v1);
+            if (driver.addValue("COEN244", v1) == true)
+            {
+                std::cout << "Success! Value added" << std::endl;
+            }
+            else
+            {
+                std::cout << "Sorry there was an error" << std::endl;
+            }
             break;
         case 4: 
-            driver.searchValueExists("ENCS282");
+            if (driver.searchValueExists("ENCS282") == true)
+            {
+                std::cout << "Value exists" << std::endl;
+            }
+            else
+            {
+                std::cout << "Sorry there was an error" << std::endl;
+            }
             break;
         case 5: 
-            driver.addEdges(e);
+            if (driver.addEdges(e1) == true)
+            {
+                std::cout << "Success! Edge(s) added" << std::endl;
+            }
+            else
+            {
+                std::cout << "Sorry there was an error" << std::endl;
+            }
             break;
         case 6: 
-            driver.searchEdgeExists(e);
+            if (driver.searchEdgeExists(e2) == true)
+            {
+                std::cout << "Edge exists" << std::endl;
+            }
+            else
+            {
+                std::cout << "Sorry there was an error" << std::endl;
+            }
             break;
         case 7: 
             break;
