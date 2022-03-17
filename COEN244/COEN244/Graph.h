@@ -33,7 +33,7 @@ public:
 	virtual void convertGraph() = 0;//TO GO BACK TO LATER
 
 	//Displays a list of edges
-	virtual void display() const = 0;
+	virtual void display() = 0;
 
 	virtual ~Graph();
 };

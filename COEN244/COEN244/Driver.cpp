@@ -19,10 +19,10 @@ Driver::Driver(Driver& d) {
 
 Driver::Driver(Vertex* vArray, Edge* eArray, int NumV, int NumE, int Max) {
 	this->Max = Max;
-	this->NumVertex = NumVertex;
-	this->NumEdge = NumEdge;
-	this->vArray = new Vertex[20];
-	this->eArray = new Edge[20];
+	this->NumVertex = NumV;
+	this->NumEdge = NumE;
+	this->vArray = new Vertex[Max];
+	this->eArray = new Edge[Max];
 }
 
 bool Driver::addVertices(Vertex* vArray) {
