@@ -11,7 +11,7 @@ Driver driver;
 int main()
 {
     int input;
-    Vertex v1(1, " ");
+    Vertex* v1 = new Vertex(1, " ");
     Vertex* v2 = new Vertex(9, "ENCS282");
 
     Vertex* vStart1 = new Vertex(5, "ENGR233");
@@ -21,6 +21,11 @@ int main()
     Vertex* vStart2 = new Vertex(0, "ENGR213");
     Vertex* vEnd2 = new Vertex(3, "COEN212");
     Edge e2(10, vStart2, vEnd2);
+    driver.addVertices(v1, 1);
+    driver.addVertices(vStart1, 1);
+    driver.addVertices(vEnd1, 1);
+    driver.addVertices(vStart2, 1);
+
     do
     {
         std::cout << " 1. Add vertex(vertices)\n 2. Search terminator/ending vertex\n 3. Add value to vertex\n 4. Search value" << std::endl;
@@ -32,7 +37,7 @@ int main()
         switch (input)//Evaluation of one variable
         {
         case 1: 
-            if (driver.addVertices(v2) == true)
+            if (driver.addVertices(v2, 1) == true)
             {
                 std::cout << "Success! Vertex/Vertices added" << std::endl;
             }
@@ -44,7 +49,7 @@ int main()
         case 2: 
             break;
         case 3: 
-            if (driver.addValue("COEN244", v1) == true)
+            if (driver.addValue("COEN244", *v1) == true)
             {
                 std::cout << "Success! Value added" << std::endl;
             }
@@ -64,19 +69,19 @@ int main()
             }
             break;
         case 5: 
-            if (driver.addEdges(e1) == true)
+            if (driver.addEdges(e1, 1) == true)
             {
                 std::cout << "Success! Edge(s) added" << std::endl;
             }
             else
             {
-                std::cout << "Sorry there was an error" << std::endl;
+                std::cout << "Sorry there was an error or Vertices do not exists" << std::endl;
             }
             break;
         case 6: 
             if (driver.searchEdgeExists(e2) == true)
             {
-                std::cout << "Edge exists" << std::endl;
+                std::cout << "Edge " << e2.getWeight() << " exists" << std::endl;
             }
             else
             {
@@ -86,6 +91,7 @@ int main()
         case 7: 
             break;
         case 8: 
+            driver.display();
             break;
             break;
         default:

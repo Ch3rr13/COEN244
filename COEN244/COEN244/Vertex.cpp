@@ -2,7 +2,7 @@
 
 Vertex::Vertex() {
 	ID = 0;
-	value = " ";
+	value = " NO NAME ";
 }
 
 Vertex::Vertex(Vertex& v) {

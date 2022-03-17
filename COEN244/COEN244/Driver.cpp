@@ -25,9 +25,9 @@ Driver::Driver(Vertex* vArray, Edge* eArray, int NumV, int NumE, int Max) {
 	this->eArray = new Edge[Max];
 }
 
-bool Driver::addVertices(Vertex* vArray) {
-	if(NumVertex + sizeof(vArray) <= Max) {
-		for (int i = 0; i < sizeof(vArray); i++) {
+bool Driver::addVertices(Vertex* vArray, int size) {
+	if(NumVertex + size <= Max) {
+		for (int i = 0; i < size; i++) {
 			this->vArray[NumVertex + i] = vArray[i];
 			NumVertex++;
 		}
@@ -66,20 +66,30 @@ bool Driver::searchValueExists(std::string value) {
 	return false;
 }
 
-bool Driver::addEdges(Edge* eArray) {
-	if (NumEdge + sizeof(eArray) <= Max) {
-		for (int i = 0; i < sizeof(eArray); i++) {
+bool Driver::addEdges(Edge* eArray, int size) {
+	if (NumEdge + size <= Max) {
+		for (int i = 0; i < size; i++) {
+			//search if start and end vertex of edge exists
+			if(this->searchValueExists(eArray[i].getStartVertex().getValue()) && this->searchValueExists(eArray[i].getEndVertex().getValue())) {
+				this->eArray[NumEdge + i] = eArray[i];
+				NumEdge++;
+				return true;
+			}
+			/*
 			this->eArray[NumEdge + i] = eArray[i];
 			NumEdge++;
-
+			*/
+			
+			/*		DO NOT NEED TO CREATE NEW VERTICES TO ADD EDGE
 			//Adds starting to the array
 			this->vArray[NumVertex + i] = this->eArray[NumEdge + i].getStartVertex();
 			NumVertex++;
 			//Adds ending vertices to the array
 			this->vArray[NumVertex + i] = this->eArray[NumEdge + i].getEndVertex();
 			NumVertex++;
+			*/
 		}
-		return true;
+		return false;
 	}
 	else {
 		return false;
@@ -100,8 +110,13 @@ void Driver::convertGraph() {
 }
 
 void Driver::display() {
+	std::cout << "List of Vertex: " << std::endl;
+	for (int i = 0; i < NumVertex; i++) {
+		std::cout << vArray[i].getID() << " = " << vArray[i].getValue() << std::endl;
+	}
+	std::cout << "List of Edges: " << std::endl;
 	for (int i = 0; i < NumEdge; i++) {
-		std::cout << eArray[i].getStartVertex().getValue() << " - " << eArray->getWeight() << " - " << eArray->getEndVertex().getValue();
+		std::cout << eArray[i].getStartVertex().getValue() << " - " << eArray->getWeight() << " - " << eArray->getEndVertex().getValue() << std::endl;
 	}
 }
 
