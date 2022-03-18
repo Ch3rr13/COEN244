@@ -75,19 +75,6 @@ bool Driver::addEdges(Edge* eArray, int size) {
 				NumEdge++;
 				return true;
 			}
-			/*
-			this->eArray[NumEdge + i] = eArray[i];
-			NumEdge++;
-			*/
-			
-			/*		DO NOT NEED TO CREATE NEW VERTICES TO ADD EDGE
-			//Adds starting to the array
-			this->vArray[NumVertex + i] = this->eArray[NumEdge + i].getStartVertex();
-			NumVertex++;
-			//Adds ending vertices to the array
-			this->vArray[NumVertex + i] = this->eArray[NumEdge + i].getEndVertex();
-			NumVertex++;
-			*/
 		}
 		return false;
 	}
