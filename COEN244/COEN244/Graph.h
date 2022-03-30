@@ -27,7 +27,7 @@ public:
 	//Adds list of edges to graph; Returns bool value if successful
 	virtual bool addEdges(Edge*, int) = 0;
 	//Searches if Edge exists; Returns bool value if exists
-	virtual bool searchEdgeExists(Edge&) = 0;
+	virtual bool searchEdgeExists(Edge*) = 0;
 
 	//Converts graph from directional to undirectional and viceversa
 	virtual void convertGraph() = 0;//TO GO BACK TO LATER

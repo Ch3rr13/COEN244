@@ -20,7 +20,7 @@ int main()
 
     Vertex* vStart2 = new Vertex(0, "ENGR213");
     Vertex* vEnd2 = new Vertex(3, "COEN212");
-    Edge e2(10, vStart2, vEnd2);
+    Edge* e2 = new Edge(10, vStart2, vEnd2);
     driver.addVertices(v1, 1);
     driver.addVertices(vStart1, 1);
     driver.addVertices(vEnd1, 1);
@@ -36,7 +36,7 @@ int main()
 
         switch (input)//Evaluation of one variable
         {
-        case 1: 
+        case 1:
             if (driver.addVertices(v2, 1) == true)
             {
                 std::cout << "Success! Vertex/Vertices added" << std::endl;
@@ -46,9 +46,9 @@ int main()
                 std::cout << "Sorry there was an error" << std::endl;
             }
             break;
-        case 2: 
+        case 2:
             break;
-        case 3: 
+        case 3:
             if (driver.addValue("COEN244", *v1) == true)
             {
                 std::cout << "Success! Value added" << std::endl;
@@ -58,7 +58,7 @@ int main()
                 std::cout << "Sorry there was an error" << std::endl;
             }
             break;
-        case 4: 
+        case 4:
             if (driver.searchValueExists("ENCS282") == true)
             {
                 std::cout << "Value exists" << std::endl;
@@ -68,7 +68,7 @@ int main()
                 std::cout << "Sorry there was an error" << std::endl;
             }
             break;
-        case 5: 
+        case 5:
             if (driver.addEdges(e1, 1) == true)
             {
                 std::cout << "Success! Edge(s) added" << std::endl;
@@ -81,7 +81,7 @@ int main()
         case 6: 
             if (driver.searchEdgeExists(e2) == true)
             {
-                std::cout << "Edge " << e2.getWeight() << " exists" << std::endl;
+                std::cout << "Edge " << e2->getWeight() << " exists" << std::endl;
             }
             else
             {

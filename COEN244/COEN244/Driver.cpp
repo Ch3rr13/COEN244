@@ -83,9 +83,9 @@ bool Driver::addEdges(Edge* eArray, int size) {
 	}
 }
 
-bool Driver::searchEdgeExists(Edge& edge) {
+bool Driver::searchEdgeExists(Edge* edge) {
 	for (int i = 0; i < NumEdge; i++) {
-		if (eArray[i].getStartVertex().getID() == edge.getStartVertex().getID() && eArray[i].getEndVertex().getID() == edge.getEndVertex().getID()) {
+		if (eArray[i].getStartVertex().getID() == edge->getStartVertex().getID() && eArray[i].getEndVertex().getID() == edge->getEndVertex().getID()) {
 			return true;
 		}
 	}

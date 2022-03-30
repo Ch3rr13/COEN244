@@ -22,7 +22,7 @@ public:
 	bool searchValueExists(std::string);
 
 	bool addEdges(Edge*, int);
-	bool searchEdgeExists(Edge&);
+	bool searchEdgeExists(Edge*);
 
 	void convertGraph();
 
