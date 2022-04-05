@@ -103,7 +103,7 @@ void Driver::display() {
 	}
 	std::cout << "List of Edges: " << std::endl;
 	for (int i = 0; i < NumEdge; i++) {
-		std::cout << eArray[i].getStartVertex().getValue() << " - " << eArray->getWeight() << " - " << eArray->getEndVertex().getValue() << std::endl;
+		std::cout << eArray[i].getStartVertex().getValue() << " --" << eArray->getWeight() << "--> " << eArray->getEndVertex().getValue() << std::endl;
 	}
 }
 

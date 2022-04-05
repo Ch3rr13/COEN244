@@ -7,9 +7,42 @@
 #include "Graph.h"
 #include "Driver.h"
 
+int Vertex::UniqueID = 0;
 Driver driver;
 int main()
 {
+    Driver CourseSequence;
+    
+    std::cout << "|1| : Graph can be empty: " << std::endl;
+    CourseSequence.display();
+
+    //list of Vertices
+    Vertex* COEN243 = new Vertex("COEN243");                                    // ID 1
+    Vertex* COEN244 = new Vertex("COEN244");                                    // ID 2
+    Vertex* ArrayOfVertex = new Vertex[5];  
+    ArrayOfVertex[0].setValue("COEN 212");                                      // ID 3
+    ArrayOfVertex[1].setValue("COEN 311");                                      // ID 4
+    ArrayOfVertex[2].setValue("COEN 313");                                      // ID 5
+    ArrayOfVertex[3].setValue("ENGR 213");                                      // ID 6
+    ArrayOfVertex[4].setValue("ENGR 233");                                      // ID 7
+
+    //list of edges
+    Edge* Cplusplus = new Edge("Prerequisite", COEN243, COEN244);
+    Edge* COENedges = new Edge[2];
+    COENedges[0].setWeight("Prerequisite");
+    COENedges[0].setStartVertex(ArrayOfVertex[0]);
+    COENedges[0].setEndVertex(ArrayOfVertex[1]);
+    COENedges[1].setWeight("Prerequisite");
+    COENedges[1].setStartVertex(ArrayOfVertex[1]);
+    COENedges[1].setEndVertex(ArrayOfVertex[2]);
+
+    std::cout << std::endl << "|2| : Graph is directed: " << std::endl;
+    CourseSequence.addVertices(COEN243, 1);
+    CourseSequence.addVertices(COEN244, 1);
+    CourseSequence.addEdges(Cplusplus, 1);
+    CourseSequence.display();
+
+/*
     int input;
     Vertex* v1 = new Vertex(1, " ");
     Vertex* v2 = new Vertex(9, "ENCS282");
@@ -98,4 +131,6 @@ int main()
             break;
         }
     } while (input != 9);
+    */
+return 0;
 }

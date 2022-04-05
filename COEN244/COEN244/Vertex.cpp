@@ -1,7 +1,7 @@
 #include "Vertex.h"
 
 Vertex::Vertex() {
-	ID = 0;
+	ID = UniqueID;
 	value = " NO NAME ";
 }
 
@@ -10,8 +10,9 @@ Vertex::Vertex(Vertex& v) {
 	value = v.value;
 }
 
-Vertex::Vertex(int ID, std::string value) {
-	this->ID = ID;
+Vertex::Vertex(std::string value) {
+	UniqueID++;
+	ID = UniqueID;
 	this->value = value;
 }
 

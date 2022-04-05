@@ -5,13 +5,14 @@ class Vertex
 {
 private:
 	int ID;
+	static int UniqueID;
 	std::string value;//Value will be course sequence codes
 
 
 public:
 	Vertex();//Default constructor
 	Vertex(Vertex&);//Copy constructor
-	Vertex(int, std::string);//Parameter constructor
+	Vertex(std::string);//Parameter constructor
 	
 	void setID(int);
 	int getID();

@@ -1,7 +1,7 @@
 #include "Edge.h"
 
 Edge::Edge() {
-	weight = 0;
+	weight = " Empty ";
 	startVertex = new Vertex;
 	endVertex = new Vertex;
 }
@@ -12,17 +12,17 @@ Edge::Edge(Edge& e) {
 	endVertex = e.endVertex;
 }
 
-Edge::Edge(int weight, Vertex* startVertex, Vertex* endVertex) {
+Edge::Edge(std::string weight, Vertex* startVertex, Vertex* endVertex) {
 	this->weight = weight;
 	this->startVertex = startVertex;
 	this->endVertex = endVertex;
 }
 
-void Edge::setWeight(int weight) {
+void Edge::setWeight(std::string weight) {
 	this->weight = weight;
 }
 
-int Edge::getWeight() {
+std::string Edge::getWeight() {
 	return weight;
 }
 
