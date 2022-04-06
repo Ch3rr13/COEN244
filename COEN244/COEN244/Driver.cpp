@@ -68,32 +68,30 @@ bool Driver::searchValueExists(std::string value) {
 	return false;
 }
 
-bool Driver::addEdges(Edge* eArray, int size) {//Exception: Array overflow
-	if (NumEdge + size <= Max) {
-		for (int i = 0; i < size; i++) {
-			//search if start and end vertex of edge exists
-			if(this->searchValueExists(eArray[i].getStartVertex().getValue()) && this->searchValueExists(eArray[i].getEndVertex().getValue())) {
-				this->eArray[NumEdge] = eArray[i];
-				NumEdge++;
-			}
-		}
-		return true;
-	}
-	else {
-		return false;
-	}
-
-	/*try
+bool Driver::addEdges(Edge* eArray, int size) {
+	try//Exception: Array overflow
 	{
 		if (NumEdge + size >= Max)
 		{
 			throw size;
 		}
+		else
+		{
+			for (int i = 0; i < size; i++) {
+				//search if start and end vertex of edge exists
+				if (this->searchValueExists(eArray[i].getStartVertex().getValue()) && this->searchValueExists(eArray[i].getEndVertex().getValue())) {
+					this->eArray[NumEdge] = eArray[i];
+					NumEdge++;
+				}
+			}
+			return true;
+		}
 	}
 	catch (int i)
 	{
 		std::cout << "List of vertices has reached max capacity" << std::endl;
-	}*/
+		return false;
+	}
 }
 
 bool Driver::searchEdgeExists(Edge* edge) {
