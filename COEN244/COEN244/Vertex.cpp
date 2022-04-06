@@ -30,7 +30,7 @@ void Vertex::setValue(std::string value) {
 	this->value = value;
 }
 
-std::string Vertex::getValue() {
+std::string Vertex::getValue(){
 	return value;
 }
 

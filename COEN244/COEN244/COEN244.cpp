@@ -26,13 +26,16 @@ int main()
 
     //list of edges
     Edge* Cplusplus = new Edge("Prerequisite", COEN243, COEN244);
-    Edge* COENedges = new Edge[2];
+    Edge* COENedges = new Edge[3];
     COENedges[0].setWeight("Prerequisite");
     COENedges[0].setStartVertex(ArrayOfVertex[0]);
     COENedges[0].setEndVertex(ArrayOfVertex[1]);
     COENedges[1].setWeight("Prerequisite");
     COENedges[1].setStartVertex(ArrayOfVertex[1]);
-    COENedges[1].setEndVertex(ArrayOfVertex[2]);\
+    COENedges[1].setEndVertex(ArrayOfVertex[2]);
+    COENedges[2].setWeight("Prerequisite");
+    COENedges[2].setStartVertex(ArrayOfVertex[0]);
+    COENedges[2].setEndVertex(ArrayOfVertex[2]);
 
     std::cout << "--------------------- " << std::endl;
     std::cout << std::endl << "|2| : Graph is directed: " << std::endl;
@@ -46,7 +49,7 @@ int main()
     if (CourseSequence.addVertices(ArrayOfVertex, 5)) {
         std::cout << "Vertices has been added" << std::endl;
     }
-    if (CourseSequence.addEdges(COENedges, 2)) {
+    if (CourseSequence.addEdges(COENedges, 3)) {
         std::cout << "Edges has been added" << std::endl;
     }
     CourseSequence.display();
@@ -58,6 +61,14 @@ int main()
     CourseSequence.addVertices(Empty, 1);
     CourseSequence.display();
 
+    std::cout << "--------------------- " << std::endl;
+    std::cout << std::endl << "|5| : All possibles paths in the graph: " << std::endl;
+    CourseSequence.displaypaths();
+
+    std::cout << "--------------------- " << std::endl;
+    std::cout << std::endl << "|6| : All possibles paths From a Vertex: " << std::endl;
+    CourseSequence.displaypathsfromVertex(ArrayOfVertex[0]);
+    
 
 /*
     int input;
@@ -149,5 +160,5 @@ int main()
         }
     } while (input != 9);
     */
-return 0;
+    return 0;
 }

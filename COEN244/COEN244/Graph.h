@@ -34,6 +34,8 @@ public:
 
 	//Displays a list of edges
 	virtual void display() = 0;
+	virtual void displaypaths() = 0;
+	virtual void displaypathsfromVertex(Vertex&) = 0;
 
 	virtual ~Graph();
 };

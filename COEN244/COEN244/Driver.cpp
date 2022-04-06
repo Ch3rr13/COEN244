@@ -112,6 +112,19 @@ void Driver::display() {
 		std::cout << eArray[i].getStartVertex().getValue() << " --" << eArray[i].getWeight() << "--> " << eArray[i].getEndVertex().getValue() << std::endl;
 	}
 }
+void Driver::displaypaths() {
+	std::cout << "List of Edges: " << std::endl;
+	for (int i = 0; i < NumEdge; i++) {
+		std::cout << eArray[i].getStartVertex().getValue() << " --" << eArray[i].getWeight() << "--> " << eArray[i].getEndVertex().getValue() << std::endl;
+	}
+}
+void Driver::displaypathsfromVertex(Vertex& v) {
+	for (int i = 0; i < NumEdge; i++) {
+		if (eArray[i].getStartVertex().getValue() == v.getValue()) {
+			std::cout << v.getValue() << " --" << eArray[i].getWeight() << "--> " << eArray[i].getEndVertex().getValue() << std::endl;;
+		}
+	}
+}
 
 Driver::~Driver() {
 	delete[] vArray;

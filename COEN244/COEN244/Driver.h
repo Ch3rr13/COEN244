@@ -27,7 +27,8 @@ public:
 	//void convertGraph();
 
 	void display();
-
+	void displaypaths();
+	void displaypathsfromVertex(Vertex&);
 	~Driver();
 };
 
