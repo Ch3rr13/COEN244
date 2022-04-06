@@ -69,6 +69,39 @@ int main()
     std::cout << std::endl << "|6| : All possibles paths From a Vertex: " << std::endl;
     CourseSequence.displaypathsfromVertex(ArrayOfVertex[0]);
     
+    std::cout << "--------------------- " << std::endl;
+    std::cout << std::endl << "|7| : Search for if edge exists in the graph: " << std::endl;
+    if (CourseSequence.searchEdgeExists(Cplusplus)) {
+        std::cout << "Edge exists " << std::endl;
+    }
+    else {
+        std::cout << "Edge does not exists " << std::endl;
+    }
+    Edge* FakeEdge = new Edge("Corequisite", COEN243, ArrayOfVertex);
+    FakeEdge->setEndVertex(ArrayOfVertex[3]);
+
+    if (CourseSequence.searchEdgeExists(FakeEdge)) {
+        std::cout << "Edge exists " << std::endl;
+    }
+    else {
+        std::cout << "Edge does not exists " << std::endl;
+    }
+
+    std::cout << "--------------------- " << std::endl;
+    std::cout << std::endl << "|8| : Search for if value exists in the graph:: " << std::endl;
+    if (CourseSequence.searchValueExists("COEN311")) {
+        std::cout << "Value exists " << std::endl;
+    }
+    else {
+        std::cout << "Value does not exists " << std::endl;
+    }
+    if (CourseSequence.searchValueExists("COEN3110")) {
+        std::cout << "Edge exists " << std::endl;
+    }
+    else {
+        std::cout << "Edge does not exists " << std::endl;
+    }
+ 
 
 /*
     int input;
