@@ -49,7 +49,7 @@ bool Driver::addVertices(Vertex* vArray, int size) {
 }
 
 
-bool Driver::addValue(std::string value, Vertex& vertex) {//EXCEPTION: Array overflow + input type
+bool Driver::addValue(std::string value, Vertex& vertex) {
 	for (int i = 0; i < NumVertex; i++) {
 		if (vArray[i].getID() == vertex.getID()) {
 			vArray[i].setValue(value);
