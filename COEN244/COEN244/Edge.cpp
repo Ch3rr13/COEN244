@@ -43,6 +43,6 @@ Vertex Edge::getEndVertex() {
 }
 
 Edge::~Edge() {
-	delete startVertex;
-	delete endVertex;
+	//delete startVertex;
+	//delete endVertex;
 }

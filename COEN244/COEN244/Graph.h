@@ -17,7 +17,7 @@ public:
 	//Adds list of Vertices to graph; Returns bool value if successful
 	virtual bool addVertices(Vertex*, int) = 0;
 	//Searches for ending points of a starting point
-	virtual Vertex searchEndVertex(Vertex&) = 0;
+	//virtual Vertex searchEndVertex(Vertex&) = 0;					//think later
 
 	//Add value to Vertex; Returns bool value if successful
 	virtual bool addValue(std::string, Vertex&) = 0;
@@ -30,7 +30,7 @@ public:
 	virtual bool searchEdgeExists(Edge*) = 0;
 
 	//Converts graph from directional to undirectional and viceversa
-	virtual void convertGraph() = 0;//TO GO BACK TO LATER
+	//virtual void convertGraph() = 0;//TO GO BACK TO LATER					//NOT NEEDED
 
 	//Displays a list of edges
 	virtual void display() = 0;

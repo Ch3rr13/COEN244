@@ -28,7 +28,7 @@ Driver::Driver(Vertex* vArray, Edge* eArray, int NumV, int NumE, int Max) {
 bool Driver::addVertices(Vertex* vArray, int size) {
 	if(NumVertex + size <= Max) {
 		for (int i = 0; i < size; i++) {
-			this->vArray[NumVertex + i] = vArray[i];
+			this->vArray[NumVertex] = vArray[i];
 			NumVertex++;
 		}
 		return true;
@@ -37,7 +37,7 @@ bool Driver::addVertices(Vertex* vArray, int size) {
 		return false;
 	}
 }
-
+/*
 Vertex Driver::searchEndVertex(Vertex& vertex) {
 	for (int i = 0; i < NumVertex; i++) {
 		if (vArray[i].getID() == vertex.getID() && vArray[i].getValue() == vertex.getValue())
@@ -46,6 +46,8 @@ Vertex Driver::searchEndVertex(Vertex& vertex) {
 		}
 	}
 }
+*/
+
 
 bool Driver::addValue(std::string value, Vertex& vertex) {
 	for (int i = 0; i < NumVertex; i++) {
@@ -71,12 +73,11 @@ bool Driver::addEdges(Edge* eArray, int size) {
 		for (int i = 0; i < size; i++) {
 			//search if start and end vertex of edge exists
 			if(this->searchValueExists(eArray[i].getStartVertex().getValue()) && this->searchValueExists(eArray[i].getEndVertex().getValue())) {
-				this->eArray[NumEdge + i] = eArray[i];
+				this->eArray[NumEdge] = eArray[i];
 				NumEdge++;
-				return true;
 			}
 		}
-		return false;
+		return true;
 	}
 	else {
 		return false;
@@ -92,18 +93,23 @@ bool Driver::searchEdgeExists(Edge* edge) {
 	return false;
 }
 
+/*
 void Driver::convertGraph() {
 
 }
+*/
 
 void Driver::display() {
+	
 	std::cout << "List of Vertex: " << std::endl;
+	std::cout << "ID - Value" << std::endl;
 	for (int i = 0; i < NumVertex; i++) {
 		std::cout << vArray[i].getID() << " = " << vArray[i].getValue() << std::endl;
 	}
+
 	std::cout << "List of Edges: " << std::endl;
 	for (int i = 0; i < NumEdge; i++) {
-		std::cout << eArray[i].getStartVertex().getValue() << " --" << eArray->getWeight() << "--> " << eArray->getEndVertex().getValue() << std::endl;
+		std::cout << eArray[i].getStartVertex().getValue() << " --" << eArray[i].getWeight() << "--> " << eArray[i].getEndVertex().getValue() << std::endl;
 	}
 }
 

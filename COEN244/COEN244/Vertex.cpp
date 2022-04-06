@@ -2,7 +2,7 @@
 
 Vertex::Vertex() {
 	ID = UniqueID;
-	value = " NO NAME ";
+	value = "NO VALUE ";
 }
 
 Vertex::Vertex(Vertex& v) {
@@ -25,6 +25,8 @@ int Vertex::getID() {
 }
 
 void Vertex::setValue(std::string value) {
+	UniqueID++;
+	ID = UniqueID;
 	this->value = value;
 }
 

@@ -6,13 +6,11 @@
 #include "Vertex.h"
 #include "Graph.h"
 #include "Driver.h"
-
 int Vertex::UniqueID = 0;
 Driver driver;
 int main()
 {
     Driver CourseSequence;
-    
     std::cout << "|1| : Graph can be empty: " << std::endl;
     CourseSequence.display();
 
@@ -20,11 +18,11 @@ int main()
     Vertex* COEN243 = new Vertex("COEN243");                                    // ID 1
     Vertex* COEN244 = new Vertex("COEN244");                                    // ID 2
     Vertex* ArrayOfVertex = new Vertex[5];  
-    ArrayOfVertex[0].setValue("COEN 212");                                      // ID 3
-    ArrayOfVertex[1].setValue("COEN 311");                                      // ID 4
-    ArrayOfVertex[2].setValue("COEN 313");                                      // ID 5
-    ArrayOfVertex[3].setValue("ENGR 213");                                      // ID 6
-    ArrayOfVertex[4].setValue("ENGR 233");                                      // ID 7
+    ArrayOfVertex[0].setValue("COEN212");                                      // ID 3
+    ArrayOfVertex[1].setValue("COEN311");                                      // ID 4
+    ArrayOfVertex[2].setValue("COEN313");                                      // ID 5
+    ArrayOfVertex[3].setValue("ENGR213");                                      // ID 6
+    ArrayOfVertex[4].setValue("ENGR233");                                      // ID 7
 
     //list of edges
     Edge* Cplusplus = new Edge("Prerequisite", COEN243, COEN244);
@@ -34,13 +32,32 @@ int main()
     COENedges[0].setEndVertex(ArrayOfVertex[1]);
     COENedges[1].setWeight("Prerequisite");
     COENedges[1].setStartVertex(ArrayOfVertex[1]);
-    COENedges[1].setEndVertex(ArrayOfVertex[2]);
+    COENedges[1].setEndVertex(ArrayOfVertex[2]);\
 
+    std::cout << "--------------------- " << std::endl;
     std::cout << std::endl << "|2| : Graph is directed: " << std::endl;
     CourseSequence.addVertices(COEN243, 1);
     CourseSequence.addVertices(COEN244, 1);
     CourseSequence.addEdges(Cplusplus, 1);
     CourseSequence.display();
+
+    std::cout << "--------------------- " << std::endl;
+    std::cout << std::endl << "|3| : Graph can add Vertices and edges: " << std::endl;
+    if (CourseSequence.addVertices(ArrayOfVertex, 5)) {
+        std::cout << "Vertices has been added" << std::endl;
+    }
+    if (CourseSequence.addEdges(COENedges, 2)) {
+        std::cout << "Edges has been added" << std::endl;
+    }
+    CourseSequence.display();
+
+    std::cout << "--------------------- " << std::endl;
+    std::cout << std::endl << "|4| : Vertex of graphs can have values or no values: " << std::endl;
+    Vertex* Empty = new Vertex;                         
+    Empty->setID(8);
+    CourseSequence.addVertices(Empty, 1);
+    CourseSequence.display();
+
 
 /*
     int input;

@@ -16,7 +16,7 @@ public:
 	Driver(Vertex*, Edge*,int,int, int);//Parameter constructor
 
 	bool addVertices(Vertex*, int);
-	Vertex searchEndVertex(Vertex&);
+	//Vertex searchEndVertex(Vertex&);
 
 	bool addValue(std::string, Vertex&);
 	bool searchValueExists(std::string);
@@ -24,7 +24,7 @@ public:
 	bool addEdges(Edge*, int);
 	bool searchEdgeExists(Edge*);
 
-	void convertGraph();
+	//void convertGraph();
 
 	void display();
 
