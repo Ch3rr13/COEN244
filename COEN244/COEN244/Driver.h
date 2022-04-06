@@ -16,7 +16,7 @@ public:
 	Driver(Vertex*, Edge*,int,int, int);//Parameter constructor
 
 	bool addVertices(Vertex*, int);
-	//Vertex searchEndVertex(Vertex&);
+	void displaypathsfromVertex(Vertex&);
 
 	bool addValue(std::string, Vertex&);
 	bool searchValueExists(std::string);
@@ -28,7 +28,6 @@ public:
 
 	void display();
 	void displaypaths();
-	void displaypathsfromVertex(Vertex&);
 	~Driver();
 };
 

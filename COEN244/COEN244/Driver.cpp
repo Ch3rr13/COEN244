@@ -26,30 +26,30 @@ Driver::Driver(Vertex* vArray, Edge* eArray, int NumV, int NumE, int Max) {
 }
 
 bool Driver::addVertices(Vertex* vArray, int size) {
-	if(NumVertex + size <= Max) {
-		for (int i = 0; i < size; i++) {
-			this->vArray[NumVertex] = vArray[i];
-			NumVertex++;
+	try//EXCEPTION: Array overflow
+	{
+		if (NumEdge + size >= Max)
+		{
+			throw size;
 		}
-		return true;
+		else
+		{
+			for (int i = 0; i < size; i++) {
+				this->vArray[NumVertex] = vArray[i];
+				NumVertex++;
+			}
+			return true;
+		}
 	}
-	else {
+	catch (int i)
+	{
+		std::cout << "List of vertices has reached max capacity" << std::endl;
 		return false;
 	}
 }
-/*
-Vertex Driver::searchEndVertex(Vertex& vertex) {
-	for (int i = 0; i < NumVertex; i++) {
-		if (vArray[i].getID() == vertex.getID() && vArray[i].getValue() == vertex.getValue())
-		{
-			return vArray[i];
-		}
-	}
-}
-*/
 
 
-bool Driver::addValue(std::string value, Vertex& vertex) {
+bool Driver::addValue(std::string value, Vertex& vertex) {//EXCEPTION: Array overflow + input type
 	for (int i = 0; i < NumVertex; i++) {
 		if (vArray[i].getID() == vertex.getID()) {
 			vArray[i].setValue(value);
@@ -68,7 +68,7 @@ bool Driver::searchValueExists(std::string value) {
 	return false;
 }
 
-bool Driver::addEdges(Edge* eArray, int size) {
+bool Driver::addEdges(Edge* eArray, int size) {//Exception: Array overflow
 	if (NumEdge + size <= Max) {
 		for (int i = 0; i < size; i++) {
 			//search if start and end vertex of edge exists
@@ -82,6 +82,18 @@ bool Driver::addEdges(Edge* eArray, int size) {
 	else {
 		return false;
 	}
+
+	/*try
+	{
+		if (NumEdge + size >= Max)
+		{
+			throw size;
+		}
+	}
+	catch (int i)
+	{
+		std::cout << "List of vertices has reached max capacity" << std::endl;
+	}*/
 }
 
 bool Driver::searchEdgeExists(Edge* edge) {
