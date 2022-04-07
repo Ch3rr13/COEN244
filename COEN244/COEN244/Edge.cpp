@@ -12,10 +12,18 @@ Edge::Edge(Edge& e) {
 	endVertex = e.endVertex;
 }
 
-Edge::Edge(std::string weight, Vertex* startVertex, Vertex* endVertex) {
+Edge::Edge(std::string weight, Vertex& startVertex, Vertex& endVertex) {
 	this->weight = weight;
-	this->startVertex = startVertex;
-	this->endVertex = endVertex;
+	//this->startVertex = startVertex;			//if using pointers as parameters
+	//this->endVertex = endVertex;
+	this->setStartVertex(startVertex);
+	this->setEndVertex(endVertex);
+}
+
+void Edge::setInfo(std::string weight, Vertex& startV, Vertex& endV) {
+	this->weight = weight;
+	this->setStartVertex(startV);
+	this->setEndVertex(endV);
 }
 
 void Edge::setWeight(std::string weight) {

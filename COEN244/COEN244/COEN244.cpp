@@ -13,6 +13,7 @@ int main()
     Driver CourseSequence;
     std::cout << "|1| : Graph can be empty: " << std::endl;
     CourseSequence.display();
+    
 
     //list of Vertices
     Vertex* COEN243 = new Vertex("COEN243");                                    // ID 1
@@ -25,7 +26,7 @@ int main()
     ArrayOfVertex[4].setValue("ENGR233");                                      // ID 7
 
     //list of edges
-    Edge* Cplusplus = new Edge("Prerequisite", COEN243, COEN244);
+    Edge* Cplusplus = new Edge("Prerequisite", *COEN243, *COEN244);
     Edge* COENedges = new Edge[3];
     COENedges[0].setWeight("Prerequisite");
     COENedges[0].setStartVertex(ArrayOfVertex[0]);
@@ -77,8 +78,8 @@ int main()
     else {
         std::cout << "Edge does not exists " << std::endl;
     }
-    Edge* FakeEdge = new Edge("Corequisite", COEN243, ArrayOfVertex);
-    FakeEdge->setEndVertex(ArrayOfVertex[3]);
+    Edge* FakeEdge = new Edge("Corequisite", *COEN243, ArrayOfVertex[3]);
+    //FakeEdge->setEndVertex(ArrayOfVertex[3]);
  
     if (CourseSequence.searchEdgeExists(FakeEdge)) {
         std::cout << "Edge exists " << std::endl;
@@ -101,7 +102,9 @@ int main()
     else {
         std::cout << "Vertex with value COEN3110 Edge does not exists " << std::endl;
     }
- 
+    std::cout << std::endl << "End result of Graph: " << std::endl;
+    CourseSequence.display();
+    std::cout << "--------------------- " << std::endl;
 
 /*
     int input;
@@ -192,6 +195,52 @@ int main()
             break;
         }
     } while (input != 9);
-    */
+    */  
+
+    
+    std::cout << "--------------------- " << std::endl;
+    std::cout << std::endl << "UNDIRECTED GRAPH TEST " << std::endl;
+    std::cout << "--------------------- " << std::endl;
+
+    //list of Vertices
+    Vertex* SF = new Vertex("San Francisco");                                   
+    Vertex* LA = new Vertex("Los Angeles");                                    
+    Vertex* ArrayOfLocation = new Vertex[6];
+    ArrayOfLocation[0].setValue("Denver");                                     
+    ArrayOfLocation[1].setValue("Chicago");                                     
+    ArrayOfLocation[2].setValue("New York");                                     
+    ArrayOfLocation[3].setValue("Boston");                                     
+    ArrayOfLocation[4].setValue("Atlanta");                                      
+    ArrayOfLocation[5].setValue("Miami");   
+
+    Edge* Distance = new Edge[8];
+
+    Distance[0].setInfo("349", *SF, *LA);
+    Distance[1].setInfo("834", *LA, ArrayOfLocation[0]);
+    Distance[2].setInfo("957", ArrayOfLocation[0], *SF);
+    Distance[3].setInfo("908", ArrayOfLocation[1], ArrayOfLocation[0]);
+    Distance[4].setInfo("860", ArrayOfLocation[1], ArrayOfLocation[3]);
+    Distance[5].setInfo("2534", *SF, ArrayOfLocation[2]);
+    Distance[6].setInfo("2451", *LA, ArrayOfLocation[2]);
+    Distance[7].setInfo("909", ArrayOfLocation[1], ArrayOfLocation[4]);
+
+    UndirectedDriver Mileage;
+    Mileage.addVertices(SF, 1);
+    Mileage.addVertices(LA, 1);
+    Mileage.addVertices(ArrayOfLocation, 6);
+    std::cout << "--------------------- " << std::endl;
+    std::cout << std::endl << "Printing graph with only vertices added " << std::endl;
+    Mileage.display();
+
+    Mileage.addEdges(Distance, 8);
+    std::cout << "--------------------- " << std::endl;
+    std::cout << std::endl << "Printing graph with Edges added " << std::endl;
+    Mileage.display();
+    std::cout << std::endl << "Printing All paths " << std::endl;
+    Mileage.displaypaths();
+    std::cout << std::endl << "Printing All paths from San Francisco " << std::endl;
+    Mileage.displaypathsfromVertex(*SF);
+
+
     return 0;
 }

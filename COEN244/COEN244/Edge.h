@@ -11,7 +11,9 @@ private:
 public:
 	Edge();//Default constructor
 	Edge(Edge&);//Copy constructor          
-	Edge(std::string, Vertex*, Vertex*);//Parameter constructor
+	Edge(std::string, Vertex&, Vertex&);//Parameter constructor
+
+	void setInfo(std::string, Vertex&, Vertex&);
 
 	void setWeight(std::string);
 	std::string getWeight();
