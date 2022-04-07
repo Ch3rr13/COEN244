@@ -79,7 +79,7 @@ int main()
     }
     Edge* FakeEdge = new Edge("Corequisite", COEN243, ArrayOfVertex);
     FakeEdge->setEndVertex(ArrayOfVertex[3]);
-
+ 
     if (CourseSequence.searchEdgeExists(FakeEdge)) {
         std::cout << "Edge exists " << std::endl;
     }
@@ -90,16 +90,16 @@ int main()
     std::cout << "--------------------- " << std::endl;
     std::cout << std::endl << "|8| : Search for if value exists in the graph:: " << std::endl;
     if (CourseSequence.searchValueExists("COEN311")) {
-        std::cout << "Value exists " << std::endl;
+        std::cout << "Vertex with value COEN311 exists " << std::endl;
     }
     else {
-        std::cout << "Value does not exists " << std::endl;
+        std::cout << "Vertex with value COEN311 does not exists " << std::endl;
     }
     if (CourseSequence.searchValueExists("COEN3110")) {
-        std::cout << "Edge exists " << std::endl;
+        std::cout << "Vertex with value COEN3110 Edge exists " << std::endl;
     }
     else {
-        std::cout << "Edge does not exists " << std::endl;
+        std::cout << "Vertex with value COEN3110 Edge does not exists " << std::endl;
     }
  
 
