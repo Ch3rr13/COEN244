@@ -24,8 +24,6 @@ public:
 	bool addEdges(Edge*, int);
 	bool searchEdgeExists(Edge*);
 
-	//void convertGraph();
-
 	void display();
 	void displaypaths();
 	~Driver();

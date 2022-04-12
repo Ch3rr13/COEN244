@@ -62,6 +62,10 @@ int main()
     CourseSequence.addVertices(Empty, 1);
     CourseSequence.display();
 
+    std::cout << "After adding a value to Vertex 8: " << std::endl;
+    CourseSequence.addValue("any value", *Empty);
+    CourseSequence.display();
+
     std::cout << "--------------------- " << std::endl;
     std::cout << std::endl << "|5| : All possibles paths in the graph: " << std::endl;
     CourseSequence.displaypaths();

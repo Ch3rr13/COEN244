@@ -89,7 +89,7 @@ bool Driver::addEdges(Edge* eArray, int size) {
 	}
 	catch (int i)
 	{
-		std::cout << "List of vertices has reached max capacity" << std::endl;
+		std::cout << "List of edges has reached max capacity" << std::endl;
 		return false;
 	}
 }
