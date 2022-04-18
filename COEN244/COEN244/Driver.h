@@ -7,6 +7,7 @@ private:
 	int Max;
 	int NumVertex;
 	int NumEdge;
+	int loopcounter;
 	Vertex* vArray;
 	Edge* eArray;
 
@@ -19,7 +20,7 @@ public:
 	void displaypathsfromVertex(Vertex&);
 	void displaypathsfromVertex(std::string value);
 
-	void displaypathsbetweenVertex(Vertex&, Vertex&);
+	//void displaypathsbetweenVertex(Vertex&, Vertex&);		//does not work
 
 	Vertex& searchVertex(std::string);
 
@@ -29,6 +30,9 @@ public:
 	bool addEdges(Edge*, int);
 	bool searchEdgeExists(Edge*);
 	bool searchEdgeExists(std::string weight, std::string v1, std::string v2);
+
+	void Vertexpath2(int i, Vertex& v);
+	void Vertexpath(Vertex& a);
 
 	void display();
 	void displaypaths();
@@ -43,6 +47,7 @@ private:
 	int Max;
 	int NumVertex;
 	int NumEdge;
+	int loopcounter;
 	Vertex* vArray;
 	Edge* eArray;
 
@@ -54,6 +59,7 @@ public:
 	bool addVertices(Vertex*, int);
 	void displaypathsfromVertex(Vertex&);
 	void displaypathsfromVertex(std::string value);
+	//void displaypathsfromVertextest(std::string value);
 
 	//void displaypathsbetweenVertex(Vertex&, Vertex&);
 
@@ -65,6 +71,9 @@ public:
 
 	bool addEdges(Edge*, int);
 	bool searchEdgeExists(Edge*);
+
+	void Vertexpath2(int i, Vertex& v);
+	void Vertexpath(Vertex& v);
 
 	void display();
 	void displaypaths();

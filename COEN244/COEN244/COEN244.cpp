@@ -21,7 +21,7 @@ int main() {
         {
             std::cout << " 1. Add vertex(vertices)\n 2. Search vertex paths\n 3. Add value to vertex\n 4. Search value" << std::endl;
             std::cout << " 5. Add edge(s)\n 6. Search if edge exists" << std::endl;
-            std::cout << " 7. Display graph\n 8. Search all paths from 2 Vertex\n 9. Exit" << std::endl;
+            std::cout << " 7. Display graph\n 8. Search all paths from a Vertex\n 9. Exit" << std::endl;
 
             std::cin >> input;
             switch (input)                  //Evaluation of one variable
@@ -151,6 +151,7 @@ int main() {
             }
 
             case 8: {
+                /*
                 Vertex* v1 = new Vertex("1");
                 Vertex* v2 = new Vertex("2");
                 Vertex* v3 = new Vertex("3");
@@ -159,21 +160,28 @@ int main() {
                 driver.addVertices(v2, 1);
                 driver.addVertices(v3, 1);
                 driver.addVertices(v4, 1);
-                Edge* e1 = new Edge("1", *v1, *v2);
-                Edge* e2 = new Edge("2", *v1, *v3);
-                Edge* e3 = new Edge("3", *v1, *v4);
-                Edge* e4 = new Edge("4", *v2, *v4);
-                Edge* e5 = new Edge("5", *v3, *v4);
-            //    Edge* e6 = new Edge("6", *v3, *v2);
+                Edge* e1 = new Edge("a", *v1, *v2);
+                Edge* e2 = new Edge("b", *v1, *v3);
+                Edge* e3 = new Edge("c", *v1, *v4);
+                Edge* e4 = new Edge("d", *v2, *v4);
+                Edge* e5 = new Edge("e", *v3, *v4);
+                Edge* e6 = new Edge("f", *v3, *v2);
                 driver.addEdges(e1, 1);
                 driver.addEdges(e2, 1);
                 driver.addEdges(e3, 1);
                 driver.addEdges(e4, 1);
-                driver.display();
                 driver.addEdges(e5, 1);
+                driver.addEdges(e6, 1);
+                
                 driver.display();
-                std::cout << "wait\n";
-                driver.displaypathsbetweenVertex(*v1,*v4);
+                std::cout << "wait\n------------------------------------" << std::endl;
+                driver.Vertexpath(*v1);
+                */
+                std::string value;
+                std::cout << "Enter the value of the Vertex" << std::endl;
+                std::cin >> value;
+
+                driver.Vertexpath(driver.searchVertex(value));
                 break;
             }
 
@@ -190,7 +198,7 @@ int main() {
     {
         std::cout << " 1. Add vertex(vertices)\n 2. Search vertex paths\n 3. Add value to vertex\n 4. Search value" << std::endl;
         std::cout << " 5. Add edge(s)\n 6. Search if edge exists" << std::endl;
-        std::cout << " 7. Display graph\n 9. Exit" << std::endl;
+        std::cout << " 7. Display graph\n 8. Search all paths from a Vertex\n 9. Exit" << std::endl;
 
         std::cin >> input;
         switch (input)                  //Evaluation of one variable
@@ -315,6 +323,14 @@ int main() {
 
         case 7: {
             udriver.display();
+            break;
+        }
+        case 8: {
+            std::string value;
+            std::cout << "Enter the value of the Vertex" << std::endl;
+            std::cin >> value;
+
+            udriver.Vertexpath(udriver.searchVertex(value));
             break;
         }
         default:

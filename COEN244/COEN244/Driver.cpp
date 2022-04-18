@@ -7,6 +7,7 @@ Driver::Driver() {
 	NumEdge = 0;
 	vArray = new Vertex[Max];
 	eArray = new Edge[Max];
+	loopcounter = 0;
 }
 
 Driver::Driver(Driver& d) {
@@ -15,6 +16,7 @@ Driver::Driver(Driver& d) {
 	NumEdge = d.NumEdge;
 	vArray = d.vArray;
 	eArray = d.eArray;
+	loopcounter = d.loopcounter;
 }
 
 Driver::Driver(Vertex* vArray, Edge* eArray, int NumV, int NumE, int Max) {
@@ -23,6 +25,7 @@ Driver::Driver(Vertex* vArray, Edge* eArray, int NumV, int NumE, int Max) {
 	this->NumEdge = NumE;
 	this->vArray = new Vertex[Max];
 	this->eArray = new Edge[Max];
+	loopcounter = 0;
 }
 
 bool Driver::addVertices(Vertex* vArray, int size) {
@@ -148,6 +151,7 @@ void Driver::displaypathsfromVertex(std::string value) {
 	}
 }
 
+/*				// DOES NOT WORK
 void Driver::displaypathsbetweenVertex(Vertex& v1, Vertex& v2) {
 	if (!searchValueExists(v1.getValue()) || !searchValueExists(v2.getValue())) {
 		std::cout << "Vertex does not exists\n";
@@ -169,6 +173,57 @@ void Driver::displaypathsbetweenVertex(Vertex& v1, Vertex& v2) {
 
 		}
 		
+		
+	}
+}
+*/
+
+void Driver::Vertexpath2(int i, Vertex& v)
+{	
+	try
+	{
+		if (loopcounter > NumEdge)
+		{
+			throw loopcounter;
+		}
+		else
+		{
+			loopcounter++;
+
+			for (int j = 0; j < NumEdge; j++)
+			{
+				if (eArray[i].getEndVertex().getValue() == eArray[j].getStartVertex().getValue())
+				{
+					if (eArray[i].getStartVertex().getValue() != v.getValue()) {
+						std::cout << v.getValue() << "---->";
+					}
+					std::cout << eArray[i].getStartVertex().getValue() << "--" << eArray[i].getWeight() << "-->" << eArray[i].getEndVertex().getValue();
+					std::cout << "--" << eArray[j].getWeight() << "-->" << eArray[j].getEndVertex().getValue() << std::endl;
+					Vertexpath2(j, v);
+				}
+			}
+		}
+	}
+	catch (int x)
+	{
+		return;
+	}
+}
+
+void Driver::Vertexpath(Vertex& v)
+{
+	std::cout << "List of all possible paths from the starting vertex: " << std::endl;
+
+	for (int i = 0; i < NumEdge; i++)
+	{
+		if (eArray[i].getStartVertex().getValue() == v.getValue())
+		{
+			std::cout << v.getValue() << "--" << eArray[i].getWeight() << "-->" << eArray[i].getEndVertex().getValue() << std::endl;
+			Vertexpath2(i, v);
+
+			std::cout << std::endl;
+			loopcounter = 0;
+		}
 		
 	}
 }
@@ -203,6 +258,7 @@ UndirectedDriver::UndirectedDriver() {
 	NumEdge = 0;
 	vArray = new Vertex[Max];
 	eArray = new Edge[Max];
+	loopcounter = 0;
 }
 
 UndirectedDriver::UndirectedDriver(UndirectedDriver& d) {
@@ -211,6 +267,7 @@ UndirectedDriver::UndirectedDriver(UndirectedDriver& d) {
 	NumEdge = d.NumEdge;
 	vArray = d.vArray;
 	eArray = d.eArray;
+	loopcounter = 0;
 }
 
 UndirectedDriver::UndirectedDriver(Vertex* vArray, Edge* eArray, int NumV, int NumE, int Max) {
@@ -219,6 +276,7 @@ UndirectedDriver::UndirectedDriver(Vertex* vArray, Edge* eArray, int NumV, int N
 	this->NumEdge = NumE;
 	this->vArray = new Vertex[Max];
 	this->eArray = new Edge[Max];
+	loopcounter = 0;
 }
 
 bool UndirectedDriver::addVertices(Vertex* vArray, int size) {
@@ -364,6 +422,56 @@ Vertex& UndirectedDriver::searchVertex(std::string val) {
 	}
 	Vertex a;
 	return a;
+}
+
+void UndirectedDriver::Vertexpath2(int i, Vertex& v)
+{
+	try
+	{
+		if (loopcounter > NumEdge)
+		{
+			throw loopcounter;
+		}
+		else
+		{
+			loopcounter++;
+
+			for (int j = 0; j < NumEdge; j++)
+			{
+				if (eArray[i].getEndVertex().getValue() == eArray[j].getStartVertex().getValue())
+				{
+					if (eArray[i].getStartVertex().getValue() != v.getValue()) {
+						std::cout << v.getValue() << "<---->";
+					}
+					std::cout << eArray[i].getStartVertex().getValue() << "<--" << eArray[i].getWeight() << "-->" << eArray[i].getEndVertex().getValue();
+					std::cout << "<--" << eArray[j].getWeight() << "-->" << eArray[j].getEndVertex().getValue() << std::endl;
+					Vertexpath2(j, v);
+				}
+			}
+		}
+	}
+	catch (int x)
+	{
+		return;
+	}
+}
+
+void UndirectedDriver::Vertexpath(Vertex& v)
+{
+	std::cout << "List of all possible paths from the starting vertex: " << std::endl;
+
+	for (int i = 0; i < NumEdge; i++)
+	{
+		if (eArray[i].getStartVertex().getValue() == v.getValue())
+		{
+			std::cout << v.getValue() << "<--" << eArray[i].getWeight() << "-->" << eArray[i].getEndVertex().getValue() << std::endl;
+			Vertexpath2(i, v);
+
+			std::cout << std::endl;
+			loopcounter = 0;
+		}
+
+	}
 }
 
 UndirectedDriver::~UndirectedDriver() {
